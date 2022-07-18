@@ -4,6 +4,7 @@
   --light-blue: rgb(4,36,216);
   --pale-blue: rgb(3,66,191);
   --yellow: rgb(242,168,29);
+  --dark-yellow: #A47214;
   --bright-blue: rgb(0,147,251);
   --yellow-invert: #0d57e2;
   font-size: 16px;
@@ -19,6 +20,7 @@ html{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 main{
@@ -47,6 +49,7 @@ header{
   left: 0;
   width: 100%;
   z-index: 2;
+  align-items: center;
 }
 
 .logo-box{
@@ -79,12 +82,23 @@ nav ul a{
   text-decoration: none;
   font-size: 1.2rem;
   color: white;
+  display: inline-block;
 }
 
-nav ul a:hover{
+nav ul a:hover, #contact a:hover{
   border-bottom: 2px solid white;
   text-shadow: 0px -1px 7px rgb(255, 255, 255);
   font-weight: bold;
+  transform: translate(0px, -5px);
+  -webkit-transform: translate(0px, -5px);
+  -moz-transform: translate(0px, -5px);
+  -o-transform: translate(0px, -5px);
+  transition: transform 0.2s ease 0s;
+}
+
+@keyframes glow-up {
+  from {transform: translate(0);}
+  to {transform: translate(0, -10px);}
 }
 
 @media (max-width: 630px){
@@ -97,6 +111,7 @@ h2{
   font-size: 2rem;
   text-shadow: 0px 0px 17px white;
   text-align: center;
+  margin-top: 100px;
 }
 /*Welcome*/
 
@@ -110,12 +125,16 @@ h2{
   align-items: center;
 }
 
+
+
 h1{
   font-family: 'Audiowide',cursive;
   font-size: 10vw;
   padding: 0;
   margin: -2.5% 0 0 0;
-  color: var(--yellow)
+  color: var(--yellow);
+  text-shadow:  0px 3px 0px #ffd311, 0px 10px 3px #3d2a07; 
+  
 }
 
 #title{
@@ -164,8 +183,25 @@ h1{
 #start{
   font-weight: bold;
   font-size: 2vw;
+  text-decoration: none;
+  color: white;
   margin: 50px auto;
   position: relative;
+  animation: start-animation 0.75s ease 0s infinite alternate none;
+}
+
+#start:hover {
+  transform: translate(0px, -5px);
+  -webkit-transform: translate(0px, -5px);
+  -moz-transform: translate(0px, -5px);
+  -o-transform: translate(0px, -5px);
+  transition: transform 0.2s ease 0s;
+  text-shadow: 0px -1px 7px rgb(255, 255, 255);
+}
+
+@keyframes start-animation{
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
 @media (max-width: 500px){
@@ -194,9 +230,11 @@ h1{
       width: 90%;}
   #about-box{
             width: 90% !important;
+            height: 100% !important;
             margin:  auto !important;
             grid-row: 1;}
   #about img{grid-row: 2; width: 90% !important;}
+  h2{margin-top: 50px !important;}
 }
 
 #about img{
@@ -231,8 +269,9 @@ h1{
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto auto;
   text-align: center;
+  justify-items: center;
   width: 90%;
-  margin:  100px auto;
+  margin:  50px auto;
   column-gap: 20px;
 }
 
@@ -276,6 +315,7 @@ h1{
   padding: 10px;
   border-radius: 10px;
   filter: invert(1);
+  box-shadow:  0px 2px 0px #002cee, 0px 4px 3px #c2d5f8; 
 }
 
 
@@ -351,8 +391,9 @@ h1{
 
 @media (max-width: 960px){
   #skills{grid-template-columns: 1fr; row-gap: 20px;}
-  .skill img{width: 18vw;}
-  .skill p{font-size: 1.5rem;}
+  .tree{column-gap: 2.5vw; justify-content: center;}
+  .skill img{width: 15vw;}
+  .skill p{font-size: 1.3rem;}
 }
 
 /*Projects*/
@@ -370,7 +411,7 @@ h1{
 
 #projects h2{
   grid-column: 1/ -1;
-  margin: 0 auto;
+  margin: 100px auto 0 auto;
 }
 
 .project{
@@ -412,10 +453,12 @@ h1{
 }
 
 .project:nth-of-type(4){
-  background-image: url(https://josefacchin.com/wp-content/uploads/2019/11/que-es-un-blogger.png);
+  background-image: url(images/portfolio.jpg);
+  background-size:contain !important;
+  background-color: var(--darker-blue);
 }
 
-.project:nth-of-type(3) p, .project:nth-of-type(4) p{color: var(--darker-blue);}
+.project:nth-of-type(3) p{color: var(--darker-blue);}
 
 .project:hover div{
   display: flex;
@@ -495,6 +538,7 @@ h1{
   margin: 0;
 }
 
+
 #contact p{
   font-size: 2rem;
   margin: 0;
@@ -526,9 +570,8 @@ h1{
   text-decoration: none;
   color: white;
   display: inline-block;
+  padding: 0;
 }
 
 
 
-.a{font-family: 'Audiowide', cursive;}
-.h{font-family: 'Odibee Sans', cursive;}
