@@ -237,14 +237,16 @@ h1{
 
 /*ABOUT ME*/
 
+#aboutme{height: 60px;}
+
 #about{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   width: 90%;
   justify-content: center;
-  align-items: center;
-  margin: 50px auto;
+  align-items:flex-start;
+  margin: auto;
 }
 
 @media (max-width: 580px){
