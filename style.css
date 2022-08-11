@@ -80,8 +80,13 @@ header{
   display: flex;
   align-items: center;
   width: 30%;
-  font-size: 1.7vw;
+  font-size: 1.2rem;
   margin-left: 10px;
+  font-weight: bold;
+}
+
+.logo-box img{
+  width: 2.5rem;
 }
 
 .logo-box p{
